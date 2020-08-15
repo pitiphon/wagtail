@@ -1,0 +1,129 @@
+{% extends "base.html" %}
+
+{% load wagtailcore_tags wagtailimages_tags %}
+
+{% block content %}
+    
+    <div class="container con1">
+        {# Example of an Orderable from home/models.py #}
+        <br><br><br>
+        <div id="carouselExampleControls" class="carousel slide box" data-ride="carousel">
+            <ol class="carousel-indicators">
+                {% for loop_cycle in self.carousel_images.all %}
+                    <li data-target="#carouselExampleIndicators" data-slide-to="forloop.counter - 1" 
+                        class="{% if forloop.counter == 1 %} active{% endif %}"></li>
+                {% endfor %}
+            </ol>
+            <div class="carousel-inner">
+                {% for loop_cycle in self.carousel_images.all %}
+                    {% image loop_cycle.carousel_image fill-900x400 as img %}
+                    <div class="carousel-item{% if forloop.counter == 1 %} active{% endif %}">
+                        <img src="{{ img.url }}" class="d-block w-100" alt="{{ img.alt }}">
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+
+        <div class="box">
+            <form class="form-inline my-2 my-lg-0">
+                <input class="form-control mr-sm-2 text-right bt-search-home" type="text" placeholder="ค้นหา...">
+            </form>
+        </div>
+    </div>
+
+    {% for block in page.content %}
+        {% include_block block %}
+    {% endfor %}
+
+
+    {% comment %} introduce facebook page from home page  {% endcomment %}
+    <div class="con4">
+
+        <h2 class="text-center">{{ self.title_head_page }}</h2>
+        <h5 class="text-center mb-sm-4" style="font-weight: 50; font-size: 16px;" >รายละเอียด</h5>
+        <div class="container text-center">
+        <div class="row">
+            <div class="col-sm-5 text-center" id="page-panel-fb">
+                <br>
+                <br>
+                <br>
+                <center>
+                    <h3>
+                        จีโนมิกส์ไทยแลนด์
+                    </h3>
+                    <h4>
+                        <a href="https://www.facebook.com/pg/GenomicsThailand">
+                            <div class="fb-corners">
+                                <font color="white">
+                                    <span>เพจเฟสบุ๊ค</span>
+                                </font>
+                            </div>
+                        </a>
+                    </h4>
+                </center>
+
+                <br>
+                <p>
+                    </p><div class="fb-page fb_iframe_widget" id="page-panel-fb" data-href="https://www.facebook.com/pg/GenomicsThailand" data-hide-cover="false" data-show-facepile="false" fb-xfbml-state="rendered" fb-iframe-plugin-query="app_id=&amp;container_width=475&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FGenomicsThailand&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=false"><span style="vertical-align: bottom; width: 340px; height: 130px;"><iframe name="f3010b2b86eb088" width="1000px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.1/plugins/page.php?app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df4ed2a761eab3%26domain%3Dgenomicsthailand.com%26origin%3Dhttps%253A%252F%252Fgenomicsthailand.com%252Ff28cad6984caf68%26relation%3Dparent.parent&amp;container_width=475&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FGenomicsThailand&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=false" style="border: none; visibility: visible; width: 340px; height: 130px;" class=""></iframe></span></div>
+                <p></p>
+                <br>
+                <br>
+                <br>
+            </div>
+            <div class="col-sm-1 "></div>
+            <div class="col-sm-6 text-center" id="page-panel-fb">
+                <div id="fb-root" class=" fb_reset"><div style="position: absolute; top: -10000px; width: 0px; height: 0px;"><div></div></div></div>
+                    <script>(function (d, s, id) {
+                            var js, fjs = d.getElementsByTagName(s)[0];
+                            if (d.getElementById(id)) return;
+                            js = d.createElement(s); js.id = id;
+                            js.src = 'https://connect.facebook.net/th_TH/sdk.js#xfbml=1&version=v3.1';
+                            fjs.parentNode.insertBefore(js, fjs);
+                        }(document, 'script', 'facebook-jssdk'));
+                    </script>
+                    <div style="width:100%; overflow-y:hidden; border:solid 0px #ebebeb;">
+                        <div class="fb-page fb_iframe_widget" data-href="https://www.facebook.com/pg/GenomicsThailand" data-tabs="timeline,messages,events" data-header="false" data-width="680" data-small-header="true" data-adapt-container-width="true" data-hide-cover="false" data-show-facepile="true" style="margin-top:-71px;display: block;" fb-xfbml-state="rendered" fb-iframe-plugin-query="adapt_container_width=true&amp;app_id=&amp;container_width=570&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FGenomicsThailand&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline%2Cmessages%2Cevents&amp;width=680"><span style="vertical-align: bottom; width: 500px; height: 500px;"><iframe name="f388599622a920c" width="680px" height="1000px" data-testid="fb:page Facebook Social Plugin" title="fb:page Facebook Social Plugin" frameborder="0" allowtransparency="true" allowfullscreen="true" scrolling="no" allow="encrypted-media" src="https://www.facebook.com/v3.1/plugins/page.php?adapt_container_width=true&amp;app_id=&amp;channel=https%3A%2F%2Fstaticxx.facebook.com%2Fx%2Fconnect%2Fxd_arbiter%2F%3Fversion%3D46%23cb%3Df3980661afbc94c%26domain%3Dgenomicsthailand.com%26origin%3Dhttps%253A%252F%252Fgenomicsthailand.com%252Ff28cad6984caf68%26relation%3Dparent.parent&amp;container_width=570&amp;hide_cover=false&amp;href=https%3A%2F%2Fwww.facebook.com%2Fpg%2FGenomicsThailand&amp;locale=th_TH&amp;sdk=joey&amp;show_facepile=true&amp;small_header=true&amp;tabs=timeline%2Cmessages%2Cevents&amp;width=680" style="border: none; visibility: visible; width: 500px; height: 500px;" class=""></iframe></span></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <br>
+        <br>
+        <br>
+    </div>
+    {% comment %} introduce facebook page from home page  {% endcomment %}
+
+    {% comment %} Focal Point from home page  {% endcomment %}
+    <div class="container mt-4 mb-4 ogp">
+
+        <div class="card-Focal mb-2">
+            <div class="card-header" style="font-weight: 700;">
+                Focal Point on Genomic Medicine in Thailand
+            </div>
+            <div class="card-body">
+                <div class="row">
+                    <div class="col-md-4">
+                        <img src="http://media.springernature.com/w580h326/nature-cms/uploads/collections/FP_TCELS_Feature_imagehero-fe639ab6dc2839b572dc6fcb7c6030ea.jpg" alt="" class="card-img-top-focal">
+                    </div>
+                    <div class="col-md-8">
+                        <a href="https://www.nature.com/collections/chjcddijfc">
+                            <h5 class="card-title" style="color: #3a6fda;">Focal Point on Genomic Medicine in Thailand</h5>
+                        </a>
+                        <p class="card-text">Focal Point on Genomic Medicine in Thailand</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+    </div>
+    {% comment %} Focal Point from home page  {% endcomment %}
+
+    <div style="padding: 3%"></div>
+
+    
+
+
+
+ 
+{% endblock content %}
+

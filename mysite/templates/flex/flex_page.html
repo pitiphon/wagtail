@@ -1,0 +1,196 @@
+{% extends "base.html" %}
+
+{% block content %}
+<br><br>
+    {% comment %} {{ self.subtitle }} is the subtitle {% endcomment %}
+
+    <div class="" style="height: auto">
+
+        <div id="top-search-rare-udd">
+            <div class="container">
+                <br>
+                <h2 class="text-center" style="color:#ffffff; text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.3em;">Rare/Undiagnosed disease</h2>
+                <br>
+                <br>
+                <form method="POST">
+                    <div class="row">
+                        <div class="col-1"></div>
+                        <div class="col-lg-10 align-items-center">
+                            <div class="input-group input-group-lg">
+                                <input type="text" class="form-control input-lg" placeholder="Search for a gene or variant or region">
+                                <span class="input-group-btn">
+                                    <button class="btn btn-primary btn-lg" type="submit">
+                                        <i class="fas fa-search"></i> Search</button>
+                                        <a class="btn btn-lg" style="background-color:rgb(174, 25, 204); color:#ffffff;" title="Visualization">
+                                                <i class="fas fa-chart-bar"></i>
+                                            </a>
+                                </span>
+                            </div>
+                        </div>
+                        <div class="col-1"></div>
+                    </div>
+                    <center>
+                        <p class="text-white" style="text-shadow: rgb(0, 0, 0) 0.1em 0.1em 0.3em;">
+                            Examples - Gene: <a href="" style="color:rgb(255, 217, 0);">PCSK9</a>, 
+                            Transcript: <a href="" style="color:rgb(255, 217, 0);">ENST00000407236</a>, 
+                            Variant: <a href="" style="color:rgb(255, 217, 0);">22-46615880-T-C</a>, 
+                            Multi-allelic variant: <a href="" style="color:rgb(255, 217, 0);">rs1800234</a>,
+                            Region: <a href="" style="color:rgb(255, 217, 0);">22:46615715-46615880</a>
+                        </p>
+                    </center>
+                </form>
+                <br>
+                <br>
+                <br>
+            </div>    
+        </div>
+ 
+        <div class="container-fluid">
+            <br>
+
+            <div class="container" style="border-style: solid;border-width: 0px;">
+                <div class="row">
+                    <div class="col-6">
+                        
+                        <div id="main2" style="width: 100%; min-height: 300px; left: 5%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1593653386208"><div style="position: relative; overflow: hidden; width: 540px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
+                            <canvas data-zr-dom-id="zr_0" width="1080" height="600" style="position: absolute; left: 0px; top: 0px; width: 540px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                        </div><div></div></div>
+
+                    </div>
+
+                    <div class="col-6">
+                        
+                        <div id="main" style="width: 100%; min-height: 300px; left: 5%; -webkit-tap-highlight-color: transparent; user-select: none; position: relative;" _echarts_instance_="ec_1593653386207"><div style="position: relative; overflow: hidden; width: 540px; height: 300px; padding: 0px; margin: 0px; border-width: 0px;">
+                            <canvas data-zr-dom-id="zr_0" width="1080" height="600" style="position: absolute; left: 0px; top: 0px; width: 540px; height: 300px; user-select: none; -webkit-tap-highlight-color: rgba(0, 0, 0, 0); padding: 0px; margin: 0px; border-width: 0px;"></canvas>
+                        </div><div></div></div>
+                    </div>
+                    
+                </div>
+
+            </div>
+        
+        </div>
+
+        <br><br>
+
+        <div class="container text-dark">
+                <h3>About ExAC</h3><br>
+                <p>
+                  The Exome Aggregation Consortium (ExAC) is a coalition of investigators seeking to aggregate and harmonize exome sequencing data from a wide variety of large-scale sequencing projects, and to make summary data available for the wider scientific community.
+                The data set provided on this website spans 60,706 unrelated individuals sequenced as part of various disease-specific and population genetic studies. The ExAC Principal Investigators and groups that have contributed data to the current release are listed here.
+                All data here are released under a Fort Lauderdale Agreement for the benefit of the wider biomedical community - see the terms of use here.
+                </p>
+        </div>
+
+        <script>
+            function getRandomColor() {
+                var letters = '0123456789ABCDEF';
+                var color = '#';
+                for (var i = 0; i < 6; i++) {
+                color += letters[Math.floor(Math.random() * 15 )];
+                }
+                //alert(color);
+                return color+'c9';
+            }
+            
+        </script>
+
+
+        <script type="text/javascript">
+            var myChart = echarts.init(document.getElementById('main'));
+            option = {
+                title: {
+                    text: 'Title',
+                    subtext: '',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{b} : {c} "
+                },
+                legend: {
+                    type: 'scroll',
+                    orient: 'vertical',
+                    right: 30,
+                    top: 120,
+                    bottom: 20,
+                },
+                xAxis: {
+                    type: 'category',
+                    data: ['Mon', 'Tue', 'Wed', 'Thu', 'Fri', 'Sat', 'Sun']
+                },
+                yAxis: {
+                    type: 'value'
+                },
+                series: [{
+                    data: [{
+                        value: 120,
+                        itemStyle: {color: getRandomColor()},
+                    },
+                    {
+                        value: 200,
+                        itemStyle: {color: getRandomColor()},
+                    },
+                    {
+                        value: 150,
+                        itemStyle: {color: getRandomColor()},
+                    }],
+                    type: 'bar'
+                }]
+            };
+
+            myChart.setOption(option);
+        </script>
+
+        <script type="text/javascript">
+            var myChart2 = echarts.init(document.getElementById('main2'));
+            option2 = {
+                title: {
+                    text: 'Title',
+                    subtext: '',
+                    x: 'center'
+                },
+                tooltip: {
+                    trigger: 'item',
+                    formatter: "{a} {b} : {c} ({d}%)"
+                },
+                legend: {
+                    orient: 'vertical',
+                    left: 'left',
+                    data: ['test1', 'test2', 'test3', 'test4', 'test5'],
+                    top: 80,
+                    bottom: 20,
+                },
+                series: [
+                    {
+                        name: '',
+                        type: 'pie',
+                        radius: '60%',
+                        center: ['50%', '50%'],
+                        data: [
+                            { value: 335, name: 'test1' },
+                            { value: 310, name: 'test2' },
+                            { value: 234, name: 'test3' },
+                            { value: 135, name: 'test4' },
+                            { value: 1548, name: 'test5' }
+                        ],
+                        itemStyle: {
+                            emphasis: {
+                                shadowBlur: 10,
+                                shadowOffsetX: 0,
+                                shadowColor: 'rgba(0, 0, 0, 0.5)'
+                            }
+                        }
+                    }
+                ]
+            };
+
+            myChart2.setOption(option2);
+        </script> 
+
+	</div>
+
+
+
+<br><br>
+{% endblock %} 

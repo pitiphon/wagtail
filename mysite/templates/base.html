@@ -1,0 +1,246 @@
+{% load static wagtailuserbar %}
+
+<!DOCTYPE html>
+<html class="no-js" lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <title>
+            {% block title %}
+                {% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}
+            {% endblock %}
+            {% block title_suffix %}
+                {% with self.get_site.site_name as site_name %}
+                    {% if site_name %}- {{ site_name }}{% endif %}
+                {% endwith %}
+            {% endblock %}
+        </title>
+        <meta name="description" content="" />
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+        {# Global stylesheets #}
+        <!-- เพิ่ม css ของ bootstrap => bootswatch เข้ามา -->
+        <link rel="stylesheet" href="https://bootswatch.com/4/sandstone/bootstrap.min.css" crossorigin="anonymous">
+        <link href="https://fonts.googleapis.com/css2?family=Kanit" rel="stylesheet">
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+        
+        <link rel="stylesheet" type="text/css" href="{% static 'css/mysite.css' %}">
+
+        {% block extra_css %}
+            {# Override this in templates to add extra stylesheets #}
+        {% endblock %}
+    </head>
+
+    <body class="{% block body_class %}{% endblock %}">
+        {% wagtailuserbar %}
+        
+        <!-- Header -->
+        <nav class="navbar fixed-top navbar-expand-lg navbar-light Header-nav">
+            <a class="navbar-brand head-brand" style="color:#007BFF; " href="#">Genomics Thailand</a>
+            <div class="collapse navbar-collapse header-navbar" id="navbarColor03">
+                <ul class="navbar-nav mr-auto head-menu">
+
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link menu" style="font-weight:extra-light ;"href="#">เกี่ยวกับ<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">ภาพรวม</a>
+                            <a class="dropdown-item" href="#">ความร่วมมือ</a>
+                            <a class="dropdown-item" href="#">เข้าร่วมกับเรา</a>
+                            <a class="dropdown-item" href="#">เครือข่ายจีโนมิกส์ไทยแลนด์</a>
+                            <a class="dropdown-item" href="#">กิจกรรม</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu" href="#">กลยุทธ์</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text menu" href="#">โปรเจก<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">ซีเควนชิ่งขนาดใหญ่&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                            <a class="dropdown-item" href="#">ไมโครอาร์เรย์ จีโนไทป์</a>
+                            <a class="dropdown-item" href="#">เมตาจีโนมิกส์</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link menu" href="#">ข่าวสารและกิจกรรม<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">กิจกรรมที่กำลังจะเกิดขึ้น&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                            <a class="dropdown-item" href="#">ข่าว</a>
+                        </div>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link menu" href="#" >บริการ<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Exome aggregation browser</a>
+                            <a class="dropdown-item" href="#">Genotype-phenotype association</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu" href="#">เครื่องมือ</a>
+                    </li>
+                    
+                </ul>
+
+                <button type="button" class="btn btn-outline-info header-navbar text">ลงชื่อเข้าใช้</button>
+            </div>
+        </nav>
+        <!-- Header -->
+
+        {% block content %}{% endblock %}
+
+
+        <!-- Footer -->
+        <footer class="page-footer font-small stylish-color-dark pt-4">
+
+            <!-- Footer Links -->
+            <div class="container text-center text-md-left">
+
+                <!-- Grid row -->
+                <div class="row">
+
+                    <!-- Grid column -->
+                    <div class="footer-social col-md-3 mx-auto">
+
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">สังคมออนไลน์</h5>
+
+                        {% if settings.site_settings.SocialMediaSettings.facebook %}
+                            <a href="{{ settings.site_settings.SocialMediaSettings.facebook }}">
+                                <i class="fab fa-facebook-f"></i>
+                            </a>
+                        {% endif %}
+                        {% if settings.site_settings.SocialMediaSettings.twitter %}
+                            <a href="{{ settings.site_settings.SocialMediaSettings.twitter }}">
+                                <i class="fab fa-twitter"></i>
+                            </a>
+                        {% endif %}
+                        {% if settings.site_settings.SocialMediaSettings.google %}
+                            <a href="{{ settings.site_settings.SocialMediaSettings.google }}">
+                                <i class="fab fa-google"></i>
+                            </a>
+                        {% endif %}
+
+                    </div>
+
+                    <!-- Grid column -->
+                    <div class="col-md-4 mx-auto">
+
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">จีโนมิกส์ไทยแลนด์</h5>
+                        <p>การริเริ่มโครงการสำหรับความแม่นยำทางเวชศาสตร์ในจีโนมิคประเทศไทย เป็นเครือข่ายการวิจัยร่วมกันในประเทศไทย</p>
+
+                    </div>
+
+                    <div class="col-md-4 mx-auto">
+
+                        <!-- Content -->
+                        <h5 class="font-weight-bold text-uppercase mt-3 mb-4">ติดต่อเรา</h5>
+                        <p>อุทยานวิทยาศาสตร์ประเทศไทย (TSP) ถนนพหลโยธินคลองหนึ่ง, คลองหลวงปทุมธานี 12120 ประเทศไทย</p>
+                        
+                        <a><i class="fas fa-phone mr-2"></i>+66(0)2-564-7000 &emsp;</a>
+                        <a><i class="fas fa-print mr-2"></i>+66(0)2-564-7001 thru 5</a>
+
+                    </div>
+
+                <!-- Grid row -->
+                </div>
+                <br>
+            
+            <!-- Footer Links -->
+
+            <!-- Copyright -->
+            <div class="footer-copyright text-center py-3">
+                Copyright © 2020 All
+                <a href="https://genomicsthailand.com/Genomic/home"> จีโนมิกส์ไทยแลนด์</a>
+                Design by
+                <a href="https://genomicsthailand.com/Genomic/home"> Colorlib</a>
+            </div>
+         
+            <!-- Copyright -->
+
+        </footer>
+        <!-- Footer -->
+
+
+        {# Global javascript #}
+        <!-- เพิ่ม js ของ bootstrap เข้ามา -->
+        <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
+        <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js" integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js" integrity="sha384-OgVRvuATP1z7JjHLkuOU7Xw704+h835Lr+6QL9UvYjZE3Ipu6Tp75j7Bh/kR0JKI" crossorigin="anonymous"></script>
+        <script type="text/javascript" src="{% static 'js/mysite.js' %}"></script>
+
+        <script src='https://kit.fontawesome.com/a076d05399.js'></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0"></script>
+
+        {% block extra_js %}
+            {# Override this in templates to add extra javascript #}
+            
+        {% endblock %}
+    </body>
+</html>
+
+<script>
+    var header = $('.fixed-top');
+
+    $(window).scroll(function(e){
+        if(header.offset().top !== 0){
+            if(!header.hasClass('shadow')){
+                header.addClass('shadow');
+            }
+        }else{
+            header.removeClass('shadow');
+        }
+    });
+
+</script>
+
+
+{% comment %} <nav class="navbar navbar-expand-lg navbar-light bg-light Header-nav">
+            <a class="navbar-brand head-brand" style="color:#007BFF; " href="#">Genomics Thailand</a>
+            <div class="collapse navbar-collapse header-navbar" id="navbarColor03">
+                <ul class="navbar-nav mr-auto head-menu">
+
+                    <li class="nav-item dropdown" >
+                        <a class="nav-link menu" style="font-weight:extra-light ;"href="#">เกี่ยวกับ<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" style="font-size: 15px;" href="#">ภาพรวม</a>
+                            <a class="dropdown-item" style="font-size: 15px;" href="#">ความร่วมมือ</a>
+                            <a class="dropdown-item" style="font-size: 15px;" href="#">เข้าร่วมกับเรา</a>
+                            <a class="dropdown-item" href="#">เครือข่ายจีโนมิกส์ไทยแลนด์</a>
+                            <a class="dropdown-item" href="#">กิจกรรม</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu" href="#">กลยุทธ์</a>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link text menu" href="#">โปรเจก<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">ซีเควนชิ่งขนาดใหญ่&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                            <a class="dropdown-item" href="#">ไมโครอาร์เรย์ จีโนไทป์</a>
+                            <a class="dropdown-item" href="#">เมตาจีโนมิกส์</a>
+                        </div>
+                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link menu" href="#">ข่าวสารและกิจกรรม<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">กิจกรรมที่กำลังจะเกิดขึ้น&nbsp;&nbsp;&nbsp;&nbsp;<i class="fa fa-angle-right"></i></a>
+                            <a class="dropdown-item" href="#">ข่าว</a>
+                        </div>
+                    </li>
+                     <li class="nav-item dropdown">
+                        <a class="nav-link menu" href="#" >บริการ<i class="fa fa-angle-down"></i></a>
+                        <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
+                            <a class="dropdown-item" href="#">Exome aggregation browser</a>
+                            <a class="dropdown-item" href="#">Genotype-phenotype association</a>
+                        </div>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link menu" href="#">เครื่องมือ</a>
+                    </li>
+                    
+                </ul>
+
+                <button type="button" class="btn btn-outline-info header-navbar text">ลงชื่อเข้าใช้</button>
+
+
+            </div>
+</nav> {% endcomment %}

@@ -1,0 +1,229 @@
+nav.navbar {
+    font-family: 'Kanit', sans-serif;
+}
+
+* {
+    font-family: 'Kanit', sans-serif;
+    box-sizing: border-box;
+    /* padding:auto;
+    margin:auto; */
+}
+
+.fixed-top {
+    background-color: white;
+}
+
+
+  /* Create two equal columns that floats next to each other */
+.box {
+    float: left;
+    width: 50%;
+    padding: 10px;
+    height: 300px; /* Should be removed. Only for demonstration */
+}
+
+/* Clear floats after the columns */
+.con1:after {
+    content: "";
+    display: table;
+    clear: both;
+}
+
+.carousel-indicators li{ 
+    width: 16px; 
+    height: 16px;
+    border-radius: 100%;
+    background-color: gray; 
+}
+
+.carousel-indicators .active {
+    width: 16px; 
+    height: 16px;
+    border-radius: 100%;
+    background-color: #616A6B ;
+}
+
+.bt-search-home {
+    width: 50%;
+    box-sizing: border-box;
+    border: 2px solid #ccc;
+    border-radius: 50px;
+    font-size: 18px;
+    background-color: white;
+    background-size: 7%;
+    background-position: 10px 10px; 
+    background-repeat: no-repeat;
+    padding: 8px 20px 8px 40px;
+    -webkit-transition: width 0.4s ease-in-out;
+    transition: width 0.4s ease-in-out;
+    outline:none;
+    margin-left: 200px;
+    margin-top: 20px;
+}
+  
+/* When the input field gets focus, change its width to 100% */
+.bt-search-home:focus {
+    width: 100%;
+}
+
+.con3 > .fa-angle-down{
+    font-size:80px;
+    color:#9993f1;
+    padding: 0 0 0 0;
+    margin-left: 50%;
+    margin-right: 50%;
+} 
+
+.card{
+    width: 140px;
+    height: 340px;
+}
+
+.card-deck {
+    margin: auto;
+} 
+
+.card-img-top {
+    width: 100%;
+    height: 60%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.card-title {
+    margin-bottom: 0.75rem;
+}
+
+.card-text:last-child {
+    margin-bottom: 0;
+}
+
+.card-body {
+    flex: 1 1 auto;
+    padding: 1.25rem;
+    margin: 0rem;
+}
+
+img {
+    vertical-align: middle;
+    border-style: none;
+}
+
+/* Colorize-zoom Container */
+.img-hover-zoom--colorize {
+    transition: transform .5s, filter 1.5s ease-in-out;
+}
+  
+/* The Transformation */
+.img-hover-zoom--colorize:hover {
+    filter: grayscale(0);
+    transform: scale(1.1);
+}
+
+/*  */
+.zoom {
+    transition: transform .2s;
+}
+
+.zoom:hover {
+    transform: scale(1.1); 
+}
+
+.cluster-border {
+    border-left: 1px solid #ecedf1;
+}
+
+a, a:focus, a:hover {
+    text-decoration: none;
+    outline: 0;
+}
+
+.cluster {
+    color: #2c364a;
+    font-size: 1.4em;
+    font-weight: 100;
+    text-align: center;
+}
+
+*, *::before, *::after {
+    box-sizing: border-box;
+}
+
+.jqbox_innerhtml{
+    left: 50%;
+    top: 50%;
+    transform: translate(4%,50%);
+}
+
+.fa-angle-down {
+    transition: transform .2s;
+}
+
+.fa-angle-down:hover {
+    transform: scale(1.1); 
+}
+
+.page-footer{
+    background-color: #222222;
+    color: white;
+}
+
+.footer-social a{
+    background: #111111;
+    width: 20px;
+    width: 40px;
+    display: inline-table;
+    height: 40px;
+    text-align: center;
+    padding-top: 10px;
+    -webkit-transition: all 0.3s ease 0s;
+    -moz-transition: all 0.3s ease 0s;
+    -o-transition: all 0.3s ease 0s;
+    transition: all 0.3s ease 0s;
+}
+
+.dropdown:hover>.dropdown-menu {
+    display: block;
+}
+  
+.dropdown>.dropdown-toggle:active {
+    /*Without this, clicking will make it sticky*/
+      pointer-events: none;
+}
+
+/* introduce facebook page from home page */
+.fb-corners {
+    border-radius: 10px;
+    border: 2px solid rgb(255, 255, 255);
+    background: #3b5998;
+    padding: 10px;
+    width: 70%;
+}
+
+#page-panel-fb {
+    padding: 0px;
+    background-repeat: no-repeat;
+    box-shadow: 5px 5px 15px 1px rgba(50, 50, 50, .5);
+}
+/* introduce facebook page from home page */
+
+/* card-introduce from home page */
+.mb-2, .my-2 {
+    margin-bottom: 0.5rem !important;
+}
+.card-img-top-focal {
+    width: 100%;
+    border-top-left-radius: calc(0.25rem - 1px);
+    border-top-right-radius: calc(0.25rem - 1px);
+}
+.card-Focal {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    min-width: 0;
+    word-wrap: break-word;
+    background-color: #fff;
+    background-clip: border-box;
+    border: 1px solid rgba(0, 0, 0, 0.125);
+    border-radius: 0.25rem;
+}
+/* card-introduce from home page */

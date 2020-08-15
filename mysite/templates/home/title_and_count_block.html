@@ -1,0 +1,64 @@
+<br><br>
+<div class="container-fluid jqbox_innerhtml">
+    <div class="row">
+        
+        {% for tac in self.title_and_count %}
+                {% if forloop.counter == 1 %}
+                    <a href="/rareundiagnosed-disease/" class="col-xs-6 col-md-3 col-stat drugs zoom">
+                        <div class="cluster">{{ tac.title }}</div>
+                        <br>
+                        <div style="color: #3a6fda;font-size: 2.5em;font-weight: 100;text-align: center;">
+                            <i class="{{ tac.icon }}"></i>
+                            <span class="count">{{ tac.count }}</span>
+                        </div>
+                    </a>
+                
+                {% elif forloop.counter == 2 %}
+                    <a href="/cancer/" class="col-xs-6 col-md-2 col-stat drugs zoom cluster-border">
+                        <div class="cluster">{{ tac.title }}</div>
+                        <br>
+                        <div style="color: #b96223;font-size: 2.5em;font-weight: 100;text-align: center;">
+                            <i class="{{ tac.icon }}"></i>
+                            <span class="count">{{ tac.count }}</span>
+                        </div>
+                    </a>
+                {% elif forloop.counter == 3 %}
+                    <a href="/ncd/" class="col-xs-6 col-md-2 col-stat drugs zoom cluster-border">
+                        <div class="cluster">{{ tac.title }}</div>
+                        <br>
+                        <div style="color: rgb(26, 105, 110);font-size: 2.5em;font-weight: 100;text-align: center;">
+                            <i class="{{ tac.icon }}"></i>
+                            <span class="count">{{ tac.count }}</span>
+                        </div>
+                    </a>
+
+                {% elif forloop.counter == 4 %}
+                    <a href="/pgx/" class="col-xs-6 col-md-2 col-stat drugs zoom cluster-border">
+                        <div class="cluster">{{ tac.title }}</div>
+                        <br>
+                        <div style="color: #581f4f;font-size: 2.5em;font-weight: 100;text-align: center;">
+                            <img src="{{ tac.icon }}" alt="" width="45">
+                            <span class="count">{{ tac.count }}</span>
+                        </div>
+                    </a>
+
+                {% elif forloop.counter == 5 %}
+                    <a href="/t-rex/" class="col-xs-6 col-md-2 col-stat drugs zoom cluster-border">
+                        <div class="cluster">{{ tac.title }}</div>
+                        <br>
+                        <div style="color: #1f4b21;font-size: 2.5em;font-weight: 100;text-align: center;">
+                            <i class="{{ tac.icon }}"></i>
+                            <span class="count">{{ tac.count }}</span>
+                        </div>
+                    </a>
+                {% endif %}
+        {% endfor %} 
+
+    </div>
+</div>
+
+<br><br><br><br>
+
+<div class="container con3">
+    <i class="fa fa-angle-down"></i>
+</div>
